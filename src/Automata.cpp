@@ -1,3 +1,4 @@
+// Copyright 2024 UNN-IASR
 #include "Automata.h"
 
 Automata::Automata() : cash(0), state(OFF) {
@@ -82,7 +83,7 @@ void Automata::cancel() {
 void Automata::cook(int index) {
     if (state == COOK) {
         std::cout << "Приготовление " << menu[index] << "..." << std::endl;
-        std::this_thread::sleep_for(std::chrono::seconds(2)); // Имитация времени приготовления
+        _sleep(3); // Имитация времени приготовления
         std::cout << menu[index] << " готов!" << std::endl;
         cash -= prices[index];
         state = WAIT;
