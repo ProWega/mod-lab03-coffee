@@ -92,8 +92,3 @@ TEST(AutomataTest, RepeatedTurnOn) {
     automata.on();
     EXPECT_EQ(automata.getState(), "WAIT");
 }
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
