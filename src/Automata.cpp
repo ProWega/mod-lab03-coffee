@@ -1,6 +1,5 @@
 // Copyright 2024 UNN-IASR
 #include "Automata.h"
-#include "windows.h"
 
 Automata::Automata() : cash(0), state(OFF) {
     menu = { "Чай", "Кофе", "Молоко" };
@@ -63,8 +62,7 @@ void Automata::choice(int index) {
             << menu[index] << std::endl;
         state = CHECK;
         check(index);
-    }
-    else {
+    } else {
         std::cout <<
             "Неверный выбор или неправильное состояние."
             << std::endl;
@@ -77,8 +75,7 @@ void Automata::check(int index) {
             std::cout << "Достаточно средств." << std::endl;
             state = COOK;
             cook(index);
-        }
-        else {
+        } else {
             std::cout << "Недостаточно средств." << std::endl;
             state = ACCEPT;
         }
@@ -97,7 +94,7 @@ void Automata::cancel() {
 void Automata::cook(int index) {
     if (state == COOK) {
         std::cout << "Приготовление " << menu[index] << "..." << std::endl;
-        Sleep(3); // Имитация времени приготовления
+        //Sleep(3); // Имитация времени приготовления
         std::cout << menu[index] << " готов!" << std::endl;
         cash -= prices[index];
         state = WAIT;
