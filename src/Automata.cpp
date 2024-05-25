@@ -38,7 +38,7 @@ void Automata::getMenu() const {
     for (size_t i = 0; i < menu.size(); ++i) {
         std::cout << i + 1 << ". "
             << menu[i] << " - "
-            << prices[i] << 
+            << prices[i] <<
             " копеек" << std::endl;
     }
 }

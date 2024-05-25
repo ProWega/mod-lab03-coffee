@@ -49,7 +49,7 @@ int main() {
             std::cout << "Выход..." << std::endl;
             break;
         default:
-            std::cout << 
+            std::cout <<
                 "Неверный выбор. Пожалуйста, попробуйте снова."
                 << std::endl;
             break;
