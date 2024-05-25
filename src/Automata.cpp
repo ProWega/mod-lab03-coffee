@@ -3,14 +3,14 @@
 #include "windows.h"
 
 Automata::Automata() : cash(0), state(OFF) {
-    menu = { "Чай", "Кофе", "Молоко" };
+    menu = { "Р§Р°Р№", "РљРѕС„Рµ", "РњРѕР»РѕРєРѕ" };
     prices = { 10, 15, 20 };
 }
 
 void Automata::on() {
     if (state == OFF) {
         state = WAIT;
-        std::cout << "Автомат включен." << std::endl;
+        std::cout << "РђРІС‚РѕРјР°С‚ РІРєР»СЋС‡РµРЅ." << std::endl;
     }
 }
 
@@ -18,7 +18,7 @@ void Automata::off() {
     if (state != OFF) {
         state = OFF;
         cash = 0;
-        std::cout << "Автомат выключен." << std::endl;
+        std::cout << "РђРІС‚РѕРјР°С‚ РІС‹РєР»СЋС‡РµРЅ." << std::endl;
     }
 }
 
@@ -26,21 +26,21 @@ void Automata::coin(int amount) {
     if (state == WAIT || state == ACCEPT) {
         cash += amount;
         state = ACCEPT;
-        std::cout << "Внесено " <<
+        std::cout << "Р’РЅРµСЃРµРЅРѕ " <<
             amount <<
-            " копеек. Общая сумма: " <<
-            cash << " копеек."
+            " РєРѕРїРµРµРє. РћР±С‰Р°СЏ СЃСѓРјРјР°: " <<
+            cash << " РєРѕРїРµРµРє."
             << std::endl;
     }
 }
 
 void Automata::getMenu() const {
-    std::cout << "Меню:" << std::endl;
+    std::cout << "РњРµРЅСЋ:" << std::endl;
     for (size_t i = 0; i < menu.size(); ++i) {
         std::cout << i + 1 << ". "
             << menu[i] << " - "
             << prices[i] <<
-            " копеек" << std::endl;
+            " РєРѕРїРµРµРє" << std::endl;
     }
 }
 
@@ -59,14 +59,14 @@ void Automata::choice(int index) {
     if (state == ACCEPT &&
         index >= 0 &&
         static_cast<size_t>(index) < menu.size()) {
-        std::cout << "Выбрано: "
+        std::cout << "Р’С‹Р±СЂР°РЅРѕ: "
             << menu[index] << std::endl;
         state = CHECK;
         check(index);
     }
     else {
         std::cout <<
-            "Неверный выбор или неправильное состояние."
+            "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ."
             << std::endl;
     }
 }
@@ -74,12 +74,12 @@ void Automata::choice(int index) {
 void Automata::check(int index) {
     if (state == CHECK) {
         if (cash >= prices[index]) {
-            std::cout << "Достаточно средств." << std::endl;
+            std::cout << "Р”РѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ." << std::endl;
             state = COOK;
             cook(index);
         }
         else {
-            std::cout << "Недостаточно средств." << std::endl;
+            std::cout << "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ." << std::endl;
             state = ACCEPT;
         }
     }
@@ -87,8 +87,8 @@ void Automata::check(int index) {
 
 void Automata::cancel() {
     if (state == ACCEPT || state == CHECK) {
-        std::cout << "Операция отменена. Возвращено " <<
-            cash << " копеек." << std::endl;
+        std::cout << "РћРїРµСЂР°С†РёСЏ РѕС‚РјРµРЅРµРЅР°. Р’РѕР·РІСЂР°С‰РµРЅРѕ " <<
+            cash << " РєРѕРїРµРµРє." << std::endl;
         cash = 0;
         state = WAIT;
     }
@@ -96,9 +96,9 @@ void Automata::cancel() {
 
 void Automata::cook(int index) {
     if (state == COOK) {
-        std::cout << "Приготовление " << menu[index] << "..." << std::endl;
-        Sleep(3); // Имитация времени приготовления
-        std::cout << menu[index] << " готов!" << std::endl;
+        std::cout << "РџСЂРёРіРѕС‚РѕРІР»РµРЅРёРµ " << menu[index] << "..." << std::endl;
+        Sleep(3); // РРјРёС‚Р°С†РёСЏ РІСЂРµРјРµРЅРё РїСЂРёРіРѕС‚РѕРІР»РµРЅРёСЏ
+        std::cout << menu[index] << " РіРѕС‚РѕРІ!" << std::endl;
         cash -= prices[index];
         state = WAIT;
     }
@@ -106,7 +106,7 @@ void Automata::cook(int index) {
 
 void Automata::finish() {
     if (state == COOK) {
-        std::cout << "Завершение..." << std::endl;
+        std::cout << "Р—Р°РІРµСЂС€РµРЅРёРµ..." << std::endl;
         state = WAIT;
     }
 }

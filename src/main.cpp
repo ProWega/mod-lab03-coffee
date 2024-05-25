@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿// Copyright 2024 UNN-IASR
+#include <iostream>
 #include "Automata.h"
 
 void demo() {
