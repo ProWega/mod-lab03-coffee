@@ -33,8 +33,8 @@ TEST(AutomataTest, ShowMenu) {
     testing::internal::CaptureStdout();
     automata.getMenu();
     std::string output = testing::internal::GetCapturedStdout();
-    std::string expected_output = "Меню:\n1. Чай - 10 копеек\n"+
-	"2. Кофе - 15 копеек\n3. Молоко - 20 копеек\n";
+    std::string expected_output = "Меню:\n1. Чай - 10 копеек\n2."
+    "Кофе - 15 копеек\n3. Молоко - 20 копеек\n";
     EXPECT_EQ(output, expected_output);
 }
 
