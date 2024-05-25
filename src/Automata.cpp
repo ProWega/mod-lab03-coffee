@@ -25,7 +25,11 @@ void Automata::coin(int amount) {
     if (state == WAIT || state == ACCEPT) {
         cash += amount;
         state = ACCEPT;
-        std::cout << "Внесено " << amount << " копеек. Общая сумма: " << cash << " копеек." << std::endl;
+        std::cout << "Внесено " <<
+            amount <<
+            " копеек. Общая сумма: " <<
+            cash << " копеек."
+            << std::endl;
     }
 }
 
@@ -52,9 +56,10 @@ void Automata::choice(int index) {
         std::cout << "Выбрано: " << menu[index] << std::endl;
         state = CHECK;
         check(index);
-    }
-    else {
-        std::cout << "Неверный выбор или неправильное состояние." << std::endl;
+    } else {
+        std::cout << 
+            "Неверный выбор или неправильное состояние."
+            << std::endl;
     }
 }
 
@@ -64,8 +69,7 @@ void Automata::check(int index) {
             std::cout << "Достаточно средств." << std::endl;
             state = COOK;
             cook(index);
-        }
-        else {
+        } else {
             std::cout << "Недостаточно средств." << std::endl;
             state = ACCEPT;
         }
@@ -74,7 +78,8 @@ void Automata::check(int index) {
 
 void Automata::cancel() {
     if (state == ACCEPT || state == CHECK) {
-        std::cout << "Операция отменена. Возвращено " << cash << " копеек." << std::endl;
+        std::cout << "Операция отменена. Возвращено " <<
+            cash << " копеек." << std::endl;
         cash = 0;
         state = WAIT;
     }
