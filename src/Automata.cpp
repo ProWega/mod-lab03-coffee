@@ -36,7 +36,10 @@ void Automata::coin(int amount) {
 void Automata::getMenu() const {
     std::cout << "Меню:" << std::endl;
     for (size_t i = 0; i < menu.size(); ++i) {
-        std::cout << i + 1 << ". " << menu[i] << " - " << prices[i] << " копеек" << std::endl;
+        std::cout << i + 1 << ". "
+            << menu[i] << " - "
+            << prices[i] << 
+            " копеек" << std::endl;
     }
 }
 
@@ -52,12 +55,15 @@ std::string Automata::getState() const {
 }
 
 void Automata::choice(int index) {
-    if (state == ACCEPT && index >= 0 && static_cast<size_t>(index) < menu.size()) {
-        std::cout << "Выбрано: " << menu[index] << std::endl;
+    if (state == ACCEPT &&
+        index >= 0 &&
+        static_cast<size_t>(index) < menu.size()) {
+        std::cout << "Выбрано: "
+            << menu[index] << std::endl;
         state = CHECK;
         check(index);
     } else {
-        std::cout << 
+        std::cout <<
             "Неверный выбор или неправильное состояние."
             << std::endl;
     }
