@@ -9,7 +9,8 @@ int main() {
     int amount;
 
     do {
-        std::cout << "\nТекущее состояние: " << automata.getState() << std::endl;
+        std::cout << "\nТекущее состояние: "
+            << automata.getState() << std::endl;
         std::cout << "1. Включить" << std::endl;
         std::cout << "2. Выключить" << std::endl;
         std::cout << "3. Внести деньги" << std::endl;
@@ -48,7 +49,9 @@ int main() {
             std::cout << "Выход..." << std::endl;
             break;
         default:
-            std::cout << "Неверный выбор. Пожалуйста, попробуйте снова." << std::endl;
+            std::cout << 
+                "Неверный выбор. Пожалуйста, попробуйте снова."
+                << std::endl;
             break;
         }
     } while (choice != 0);
